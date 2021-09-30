@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>thanh toán tiền điện</title>
+    <style type="text/css">
+        body {  
+            background-color: #CCFFCC	;
+        }
+        /* table{
+            background: #FFFF33	;
+            border: 0 solid yellow;
+        } */
+        /* thead{
+            background: #fff14d;    
+        } */
+        td {
+            color: blue;
+        }
+        h3{
+            font-family: verdana;
+            text-align: center;
+            /* text-anchor: middle; */
+            color: #ff8100;
+            font-size: medium;
+        }
+        /* .container{
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        } */
+        form{
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 15px;
+            border: 2px dotted #cccccc;
+            border-radius: 10px;
+        }
+        input{
+            margin-bottom: 10px;
+            padding: 7.5px 15px;
+            width: 100%;
+            border: 1px solid #cccccc;
+            outline: none;
+        }
+        output{
+            text-align: right;
+            margin-top: 30px;
+            padding: 7.5px 15px;
+            border-radius: 2px;
+            background-color: #009999;
+            color: #ffffff;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <?php 
+        $dongia = 2000;
+        $ten = " "; 
+        if(isset($_POST['ten']))  
+            $ten=trim($_POST['ten']); 
+        else $ten= " ";
+        if(isset($_POST['chisocu']))  
+            $chisocu=trim($_POST['chisocu']); 
+        else $chisocu="";
+        if(isset($_POST['chisomoi'])) 
+            $chisomoi=trim($_POST['chisomoi']); 
+        else $chisomoi="";
+
+        if(isset($_POST['tinh']))
+            if (is_numeric($chisocu) && is_numeric($chisomoi))  
+                $tientt=($chisomoi - $chisocu) * $dongia;
+            else {
+                echo "<font color='red'>Vui lòng nhập vào số! </font>"; 
+                $tientt="";
+            }
+        else $tientt="";
+    ?>
+    <div class="form">
+        <form align='center' action="" method="post">
+        <table>
+            <div class="input">
+                <thead>
+                    <th colspan="2" align="center"><h3>THANH TOÁN TIỀN ĐIỆN</h3></th>
+                </thead>
+                <tr>
+                    <td>Tên chủ hộ:</td>
+                    <td><input type="text" name="ten" value="<?php  echo $ten;?> "/></td>
+                    
+                </tr>
+                <tr>
+                    <td>Chỉ số cũ:</td>
+                    <td><input type="text" name="chisocu" value="<?php  echo $chisocu;?> "/></td>
+                    <td>(Kw)</td>
+                </tr><tr>
+                    <td>Chỉ số mới:</td>
+                    <td><input type="text" name="chisomoi" value="<?php  echo $chisomoi;?> "/></td>
+                    <td>(Kw)</td>
+                </tr>
+                <tr>
+                    <td>Đơn giá:</td>
+                    <td><input type="text" name="dongia" value="<?php  echo $dongia;?> "/></td>
+                    <td>(VNĐ)</td>
+                </tr>
+            </div>
+            <tr>
+                <td>Số tiền thanh toán:</td>
+                <td><input type="text" name="tientt" disabled="disabled" value="<?php  echo $tientt;?> "/></td>
+                <td>(VNĐ)</td>
+            </tr>
+            <tr>
+                <td id="output" colspan="2" align="center"><input type="submit" value="Tính" name="tinh" /></td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    
+    </div>
+    
+</body>
+
+</html>
