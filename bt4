@@ -1,0 +1,133 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>tinh dien tich HCN</title>
+    <style type="text/css">
+        body {  
+            background-color: #CCFFCC	;
+        }
+        /* table{
+            background: #FFFF33	;
+            border: 0 solid yellow;
+        } */
+        /* thead{
+            background: #fff14d;    
+        } */
+        h3{
+            font-family: verdana;
+            text-align: center;
+            /* text-anchor: middle; */
+            color: #ff8100;
+            font-size: medium;
+        }
+        /* .container{
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        } */
+        form{
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 15px;
+            border: 2px dotted #cccccc;
+            border-radius: 10px;
+        }
+        input{
+            margin-bottom: 10px;
+            padding: 7.5px 15px;
+            width: 100%;
+            border: 1px solid #cccccc;
+            outline: none;
+        }
+        output{
+            text-align: right;
+            margin-top: 30px;
+            padding: 7.5px 15px;
+            border-radius: 2px;
+            background-color: #009999;
+            color: #ffffff;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>Họ tên:</td>
+            <td><input type="text" name="ten" value=""></td>
+        </tr>
+        <tr>
+            <td>Địa chỉ:</td>
+            <td><input type="text" name="diachi" value=""></td>
+        </tr>
+        <tr>
+            <td>Số điện thoại:</td>
+            <td><input type="text" name="dienthoai" value=""></td>
+        </tr>
+        <tr>
+            <td>Giới tính:</td>
+            <th>Nam<input type="radio" name="gioitinh" value="Nam"/></th>
+            <th>Nữ <input type="radio" name="gioitinh" value="Nữ"/></th>
+            
+        </tr>
+        <tr>
+            <td>Quốc tịch</td>
+            <td>
+            <select name="quoctich">
+                <option value="Việt Nam">Việt Nam</option>
+                <option value="Trung Quốc">Trung Quốc</option>
+                <option value="Hàn Quốc">Hàn Quốc</option>
+                <option value="Nhật Bản">Nhật Bản</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Các môn đã học</td>
+            <th>PHP & MySQL<input type="checkbox" name="check_php&mysql" value="PHP&MYSQL"></th>
+            <th>C#<input type="checkbox" name="check_c#" value="C#"></th>
+            <th>XML<input type="checkbox" name="check_xml" value="XML"></th>
+            <th>Python<input type="checkbox" name="check_python" value="Python"></th>
+        </tr>
+        <tr>
+            <td>Ghi chú</td>
+            <td>
+                <textarea cols="30" rows="7" name="tinnhan"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Gửi</button>
+                <button type="submit">Hủy</button>
+            </td>
+        </tr>
+        
+    </table>
+</form>
+<form>    
+    <p>Họ tên: <?php if(isset($_POST["ten"])) { echo $_POST["ten"]; } ?></p>
+    <p>Địa chỉ: <?php if(isset($_POST["diachi"])) { echo $_POST["diachi"]; } ?></p>
+    <p>Số điện thoại: <?php if(isset($_POST["dienthoai"])) { echo $_POST["dienthoai"]; } ?></p>
+    <p>Giới tính: <?php if(isset($_POST["gioitinh"])) { echo $_POST["gioitinh"]; } ?></p>
+    <p>Quốc tịch: <?php if(isset($_POST["quoctich"])) { echo $_POST["quoctich"]; } ?></p>
+    <p>
+        Đăng ký học: 
+        <?php if(isset($_POST["check_php&mysql"])) { echo $_POST["check_php&mysql"]; } ?> 
+        <?php if(isset($_POST["check_c#"])) { echo $_POST["check_c#"]; } ?>
+        <?php if(isset($_POST["check_xml"])) { echo $_POST["check_xml"]; } ?>
+        <?php if(isset($_POST["check_python"])) { echo $_POST["check_python"]; } ?>
+    </p>
+    <p>Tin nhắn: <?php if(isset($_POST["tinnhan"])) { echo $_POST["tinnhan"]; } ?></p>
+</form>
+
+    
+</body>
+
+</html>
