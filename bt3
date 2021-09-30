@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>tinh dien tich HCN</title>
+    <style type="text/css">
+        body {  
+            background-color: #CCFFCC	;
+        }
+
+        h3{
+            font-family: verdana;
+            text-align: center;
+            /* text-anchor: middle; */
+            color: #ff8100;
+            font-size: medium;
+        }
+        /* .container{
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        } */
+        form{
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 15px;
+            border: 2px dotted #cccccc;
+            border-radius: 10px;
+        }
+        input{
+            margin-bottom: 10px;
+            padding: 7.5px 15px;
+            width: 100%;
+            border: 1px solid #cccccc;
+            outline: none;
+        }
+        output{
+            text-align: right;
+            margin-top: 30px;
+            padding: 7.5px 15px;
+            border-radius: 2px;
+            background-color: #009999;
+            color: #ffffff;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h3>Phép tính trên 2 số</h3>
+    <form action="" method="post">
+    <table>
+        <?php
+            if(isset($_POST['a']))  
+                $a=trim($_POST['a']); 
+
+            if(isset($_POST['b'])) 
+                $b=trim($_POST['b']); 
+
+            function pheptinh($tt,$a,$b)
+            {
+                if($tt=='+')
+                {
+                    return $a+$b;
+                }             
+                else if($tt=='-')
+                {
+                    return $a-$b;
+                }
+                else if($tt=='*')
+                {
+                    return $a*$b;
+                }
+                else if($tt=='/')
+                {
+                    if($b!=0)
+                    {
+                        return $a/$b;
+                    } 
+                    else echo "Không thể chia cho 0";
+                }
+            }
+            if(isset($_POST['Tinh']))
+            {
+                $a = $_POST['a'];
+                $b = $_POST['b'];
+                $tt = $_POST['Tinh'];
+                if($tt=='+')
+                {
+                    $pheptinh = pheptinh($tt,$a,$b);                  
+                }
+                else if($tt=='-')
+                {
+                    $pheptinh = pheptinh($tt,$a,$b);                 
+                }
+                else if($tt=='*')
+                {
+                    $pheptinh = pheptinh($tt,$a,$b);                  
+                }
+                else if($tt=='/')
+                {
+                    $pheptinh = pheptinh($tt,$a,$b);                   
+                }
+            }
+        ?>
+        <tr>
+            <td>Chọn phép tính:
+                <th><input type="radio" value="+" name="Tinh"/>Cộng</th>
+                <th><input type="radio" value="-" name="Tinh"/>Trừ</th>
+                <th><input type="radio" value="*" name="Tinh"/>Nhân</th>
+                <th><input type="radio" value="/" name="Tinh"/>Chia</th>
+            </td>
+                
+            
+        </tr>
+        <tr>
+            <td>Số thứ 1</td>
+            <td><input type="text" name="a" value=""/></td>
+        </tr>
+        <tr>
+            <td>Số thứ 2</td>
+            <td><input type="text" name="b" value=""/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Gửi</button>
+                <button type="submit">Hủy</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Kết quả</td>
+            <td><input type="text" name="pheptinh" disabled="disabled" value="<?php echo "$pheptinh"; ?>">
+            
+            </td>
+        </tr>
+    </table>
+    </form>
+    
+    
+</body>
+
+</html>
